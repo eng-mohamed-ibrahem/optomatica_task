@@ -30,5 +30,20 @@ class HomeViewModelState with _$HomeViewModelState {
     @Default(false) bool isFilterFailed,
     @Default(false) bool isFilterSucess,
     @Default([]) List<RaceModel> filterRaces,
+
+    /// selected filter values
+    @Default(null) String? selectedType,
+    @Default(null) String? selectedDate,
+    @Default(null) String? selectedDistance,
+    @Default(null) String? selectedLocation,
+
+    /// filter data
+    @Default(false) bool isFilterDataLoading,
+    @Default(<String>{}) Set<String> racetypes,
+    @Default(<String>{}) Set<String> raceDistances,
+    @Default(<String>{}) Set<String> raceDates,
+    @Default(<String>{}) Set<String> raceLocations,
+    @Default(false) bool isFilterDataSuccess,
+    @Default(false) bool isFilterDataFailed,
   }) = _HomeViewModelState;
 }

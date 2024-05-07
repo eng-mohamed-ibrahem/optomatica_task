@@ -18,15 +18,14 @@ class LocaleRace implements RaceSourceInterface {
     try {
       var races = await fetchRacesFromAsset();
       return ResultHandler.success(
-        data: races
-            .where(
-              (element) =>
-                  element.type.contains(type ?? '') &&
-                  element.country.contains(location ?? '') &&
-                  element.date.contains(date ?? '') &&
-                  element.distances.contains(distance ?? ''),
-            )
-            .toList(),
+        data: races.where(
+          (element) {
+            return element.type.contains(type ?? '') &&
+                element.country.contains(location ?? '') &&
+                element.date.contains(date ?? '') &&
+                element.distances.contains(distance ?? '');
+          },
+        ).toList(),
       );
     } catch (e) {
       return ResultHandler.failure(error: CacheFailure(message: e.toString()));
@@ -78,5 +77,53 @@ class LocaleRace implements RaceSourceInterface {
     return (jsonDecode(jsonData) as List)
         .map<RaceModel>((e) => RaceModel.fromJson(e))
         .toList();
+  }
+
+  @override
+  Future<ResultHandler<Set<String>, Failure>> getRaceDates() async {
+    try {
+      var races = await fetchRacesFromAsset();
+      return ResultHandler.success(
+        data: races.map<String>((e) => e.date).toSet(),
+      );
+    } catch (e) {
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<Set<String>, Failure>> getRaceDistances() async {
+    try {
+      var races = await fetchRacesFromAsset();
+      return ResultHandler.success(
+        data: races.map<String>((e) => e.distances).toSet(),
+      );
+    } catch (e) {
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<Set<String>, Failure>> getRaceLocations() async {
+    try {
+      var races = await fetchRacesFromAsset();
+      return ResultHandler.success(
+        data: races.map<String>((e) => e.country).toSet(),
+      );
+    } catch (e) {
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<ResultHandler<Set<String>, Failure>> getRaceTypes() async {
+    try {
+      var races = await fetchRacesFromAsset();
+      return ResultHandler.success(
+        data: races.map<String>((e) => e.type).toSet(),
+      );
+    } catch (e) {
+      return ResultHandler.failure(error: CacheFailure(message: e.toString()));
+    }
   }
 }

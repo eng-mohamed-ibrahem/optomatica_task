@@ -44,6 +44,21 @@ mixin _$HomeViewModelState {
   bool get isFilterSucess => throw _privateConstructorUsedError;
   List<RaceModel> get filterRaces => throw _privateConstructorUsedError;
 
+  /// selected filter values
+  String? get selectedType => throw _privateConstructorUsedError;
+  String? get selectedDate => throw _privateConstructorUsedError;
+  String? get selectedDistance => throw _privateConstructorUsedError;
+  String? get selectedLocation => throw _privateConstructorUsedError;
+
+  /// filter data
+  bool get isFilterDataLoading => throw _privateConstructorUsedError;
+  Set<String> get racetypes => throw _privateConstructorUsedError;
+  Set<String> get raceDistances => throw _privateConstructorUsedError;
+  Set<String> get raceDates => throw _privateConstructorUsedError;
+  Set<String> get raceLocations => throw _privateConstructorUsedError;
+  bool get isFilterDataSuccess => throw _privateConstructorUsedError;
+  bool get isFilterDataFailed => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $HomeViewModelStateCopyWith<HomeViewModelState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -72,7 +87,18 @@ abstract class $HomeViewModelStateCopyWith<$Res> {
       bool isFilterLoading,
       bool isFilterFailed,
       bool isFilterSucess,
-      List<RaceModel> filterRaces});
+      List<RaceModel> filterRaces,
+      String? selectedType,
+      String? selectedDate,
+      String? selectedDistance,
+      String? selectedLocation,
+      bool isFilterDataLoading,
+      Set<String> racetypes,
+      Set<String> raceDistances,
+      Set<String> raceDates,
+      Set<String> raceLocations,
+      bool isFilterDataSuccess,
+      bool isFilterDataFailed});
 }
 
 /// @nodoc
@@ -105,6 +131,17 @@ class _$HomeViewModelStateCopyWithImpl<$Res, $Val extends HomeViewModelState>
     Object? isFilterFailed = null,
     Object? isFilterSucess = null,
     Object? filterRaces = null,
+    Object? selectedType = freezed,
+    Object? selectedDate = freezed,
+    Object? selectedDistance = freezed,
+    Object? selectedLocation = freezed,
+    Object? isFilterDataLoading = null,
+    Object? racetypes = null,
+    Object? raceDistances = null,
+    Object? raceDates = null,
+    Object? raceLocations = null,
+    Object? isFilterDataSuccess = null,
+    Object? isFilterDataFailed = null,
   }) {
     return _then(_value.copyWith(
       isInitialized: null == isInitialized
@@ -175,6 +212,50 @@ class _$HomeViewModelStateCopyWithImpl<$Res, $Val extends HomeViewModelState>
           ? _value.filterRaces
           : filterRaces // ignore: cast_nullable_to_non_nullable
               as List<RaceModel>,
+      selectedType: freezed == selectedType
+          ? _value.selectedType
+          : selectedType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedDate: freezed == selectedDate
+          ? _value.selectedDate
+          : selectedDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedDistance: freezed == selectedDistance
+          ? _value.selectedDistance
+          : selectedDistance // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedLocation: freezed == selectedLocation
+          ? _value.selectedLocation
+          : selectedLocation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isFilterDataLoading: null == isFilterDataLoading
+          ? _value.isFilterDataLoading
+          : isFilterDataLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      racetypes: null == racetypes
+          ? _value.racetypes
+          : racetypes // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      raceDistances: null == raceDistances
+          ? _value.raceDistances
+          : raceDistances // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      raceDates: null == raceDates
+          ? _value.raceDates
+          : raceDates // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      raceLocations: null == raceLocations
+          ? _value.raceLocations
+          : raceLocations // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      isFilterDataSuccess: null == isFilterDataSuccess
+          ? _value.isFilterDataSuccess
+          : isFilterDataSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isFilterDataFailed: null == isFilterDataFailed
+          ? _value.isFilterDataFailed
+          : isFilterDataFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -204,7 +285,18 @@ abstract class _$$HomeViewModelStateImplCopyWith<$Res>
       bool isFilterLoading,
       bool isFilterFailed,
       bool isFilterSucess,
-      List<RaceModel> filterRaces});
+      List<RaceModel> filterRaces,
+      String? selectedType,
+      String? selectedDate,
+      String? selectedDistance,
+      String? selectedLocation,
+      bool isFilterDataLoading,
+      Set<String> racetypes,
+      Set<String> raceDistances,
+      Set<String> raceDates,
+      Set<String> raceLocations,
+      bool isFilterDataSuccess,
+      bool isFilterDataFailed});
 }
 
 /// @nodoc
@@ -235,6 +327,17 @@ class __$$HomeViewModelStateImplCopyWithImpl<$Res>
     Object? isFilterFailed = null,
     Object? isFilterSucess = null,
     Object? filterRaces = null,
+    Object? selectedType = freezed,
+    Object? selectedDate = freezed,
+    Object? selectedDistance = freezed,
+    Object? selectedLocation = freezed,
+    Object? isFilterDataLoading = null,
+    Object? racetypes = null,
+    Object? raceDistances = null,
+    Object? raceDates = null,
+    Object? raceLocations = null,
+    Object? isFilterDataSuccess = null,
+    Object? isFilterDataFailed = null,
   }) {
     return _then(_$HomeViewModelStateImpl(
       isInitialized: null == isInitialized
@@ -305,6 +408,50 @@ class __$$HomeViewModelStateImplCopyWithImpl<$Res>
           ? _value._filterRaces
           : filterRaces // ignore: cast_nullable_to_non_nullable
               as List<RaceModel>,
+      selectedType: freezed == selectedType
+          ? _value.selectedType
+          : selectedType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedDate: freezed == selectedDate
+          ? _value.selectedDate
+          : selectedDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedDistance: freezed == selectedDistance
+          ? _value.selectedDistance
+          : selectedDistance // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedLocation: freezed == selectedLocation
+          ? _value.selectedLocation
+          : selectedLocation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isFilterDataLoading: null == isFilterDataLoading
+          ? _value.isFilterDataLoading
+          : isFilterDataLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      racetypes: null == racetypes
+          ? _value._racetypes
+          : racetypes // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      raceDistances: null == raceDistances
+          ? _value._raceDistances
+          : raceDistances // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      raceDates: null == raceDates
+          ? _value._raceDates
+          : raceDates // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      raceLocations: null == raceLocations
+          ? _value._raceLocations
+          : raceLocations // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      isFilterDataSuccess: null == isFilterDataSuccess
+          ? _value.isFilterDataSuccess
+          : isFilterDataSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isFilterDataFailed: null == isFilterDataFailed
+          ? _value.isFilterDataFailed
+          : isFilterDataFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -329,11 +476,26 @@ class _$HomeViewModelStateImpl implements _HomeViewModelState {
       this.isFilterLoading = false,
       this.isFilterFailed = false,
       this.isFilterSucess = false,
-      final List<RaceModel> filterRaces = const []})
+      final List<RaceModel> filterRaces = const [],
+      this.selectedType = null,
+      this.selectedDate = null,
+      this.selectedDistance = null,
+      this.selectedLocation = null,
+      this.isFilterDataLoading = false,
+      final Set<String> racetypes = const <String>{},
+      final Set<String> raceDistances = const <String>{},
+      final Set<String> raceDates = const <String>{},
+      final Set<String> raceLocations = const <String>{},
+      this.isFilterDataSuccess = false,
+      this.isFilterDataFailed = false})
       : _races = races,
         _nextRaces = nextRaces,
         _searchRaces = searchRaces,
-        _filterRaces = filterRaces;
+        _filterRaces = filterRaces,
+        _racetypes = racetypes,
+        _raceDistances = raceDistances,
+        _raceDates = raceDates,
+        _raceLocations = raceLocations;
 
   @override
   @JsonKey()
@@ -417,9 +579,70 @@ class _$HomeViewModelStateImpl implements _HomeViewModelState {
     return EqualUnmodifiableListView(_filterRaces);
   }
 
+  /// selected filter values
+  @override
+  @JsonKey()
+  final String? selectedType;
+  @override
+  @JsonKey()
+  final String? selectedDate;
+  @override
+  @JsonKey()
+  final String? selectedDistance;
+  @override
+  @JsonKey()
+  final String? selectedLocation;
+
+  /// filter data
+  @override
+  @JsonKey()
+  final bool isFilterDataLoading;
+  final Set<String> _racetypes;
+  @override
+  @JsonKey()
+  Set<String> get racetypes {
+    if (_racetypes is EqualUnmodifiableSetView) return _racetypes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_racetypes);
+  }
+
+  final Set<String> _raceDistances;
+  @override
+  @JsonKey()
+  Set<String> get raceDistances {
+    if (_raceDistances is EqualUnmodifiableSetView) return _raceDistances;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_raceDistances);
+  }
+
+  final Set<String> _raceDates;
+  @override
+  @JsonKey()
+  Set<String> get raceDates {
+    if (_raceDates is EqualUnmodifiableSetView) return _raceDates;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_raceDates);
+  }
+
+  final Set<String> _raceLocations;
+  @override
+  @JsonKey()
+  Set<String> get raceLocations {
+    if (_raceLocations is EqualUnmodifiableSetView) return _raceLocations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_raceLocations);
+  }
+
+  @override
+  @JsonKey()
+  final bool isFilterDataSuccess;
+  @override
+  @JsonKey()
+  final bool isFilterDataFailed;
+
   @override
   String toString() {
-    return 'HomeViewModelState(isInitialized: $isInitialized, isGetInitialRacesLoading: $isGetInitialRacesLoading, isGetInitialRacesFailed: $isGetInitialRacesFailed, isGetInitialRacesSucess: $isGetInitialRacesSucess, races: $races, currentPage: $currentPage, isLoadingNextPage: $isLoadingNextPage, nextRaces: $nextRaces, errorMessage: $errorMessage, isSearchLoading: $isSearchLoading, isSearchFailed: $isSearchFailed, isSearchSucess: $isSearchSucess, searchRaces: $searchRaces, isFilterLoading: $isFilterLoading, isFilterFailed: $isFilterFailed, isFilterSucess: $isFilterSucess, filterRaces: $filterRaces)';
+    return 'HomeViewModelState(isInitialized: $isInitialized, isGetInitialRacesLoading: $isGetInitialRacesLoading, isGetInitialRacesFailed: $isGetInitialRacesFailed, isGetInitialRacesSucess: $isGetInitialRacesSucess, races: $races, currentPage: $currentPage, isLoadingNextPage: $isLoadingNextPage, nextRaces: $nextRaces, errorMessage: $errorMessage, isSearchLoading: $isSearchLoading, isSearchFailed: $isSearchFailed, isSearchSucess: $isSearchSucess, searchRaces: $searchRaces, isFilterLoading: $isFilterLoading, isFilterFailed: $isFilterFailed, isFilterSucess: $isFilterSucess, filterRaces: $filterRaces, selectedType: $selectedType, selectedDate: $selectedDate, selectedDistance: $selectedDistance, selectedLocation: $selectedLocation, isFilterDataLoading: $isFilterDataLoading, racetypes: $racetypes, raceDistances: $raceDistances, raceDates: $raceDates, raceLocations: $raceLocations, isFilterDataSuccess: $isFilterDataSuccess, isFilterDataFailed: $isFilterDataFailed)';
   }
 
   @override
@@ -432,11 +655,9 @@ class _$HomeViewModelStateImpl implements _HomeViewModelState {
             (identical(
                     other.isGetInitialRacesLoading, isGetInitialRacesLoading) ||
                 other.isGetInitialRacesLoading == isGetInitialRacesLoading) &&
-            (identical(
-                    other.isGetInitialRacesFailed, isGetInitialRacesFailed) ||
+            (identical(other.isGetInitialRacesFailed, isGetInitialRacesFailed) ||
                 other.isGetInitialRacesFailed == isGetInitialRacesFailed) &&
-            (identical(
-                    other.isGetInitialRacesSucess, isGetInitialRacesSucess) ||
+            (identical(other.isGetInitialRacesSucess, isGetInitialRacesSucess) ||
                 other.isGetInitialRacesSucess == isGetInitialRacesSucess) &&
             const DeepCollectionEquality().equals(other._races, _races) &&
             (identical(other.currentPage, currentPage) ||
@@ -462,29 +683,57 @@ class _$HomeViewModelStateImpl implements _HomeViewModelState {
             (identical(other.isFilterSucess, isFilterSucess) ||
                 other.isFilterSucess == isFilterSucess) &&
             const DeepCollectionEquality()
-                .equals(other._filterRaces, _filterRaces));
+                .equals(other._filterRaces, _filterRaces) &&
+            (identical(other.selectedType, selectedType) ||
+                other.selectedType == selectedType) &&
+            (identical(other.selectedDate, selectedDate) ||
+                other.selectedDate == selectedDate) &&
+            (identical(other.selectedDistance, selectedDistance) ||
+                other.selectedDistance == selectedDistance) &&
+            (identical(other.selectedLocation, selectedLocation) ||
+                other.selectedLocation == selectedLocation) &&
+            (identical(other.isFilterDataLoading, isFilterDataLoading) ||
+                other.isFilterDataLoading == isFilterDataLoading) &&
+            const DeepCollectionEquality().equals(other._racetypes, _racetypes) &&
+            const DeepCollectionEquality().equals(other._raceDistances, _raceDistances) &&
+            const DeepCollectionEquality().equals(other._raceDates, _raceDates) &&
+            const DeepCollectionEquality().equals(other._raceLocations, _raceLocations) &&
+            (identical(other.isFilterDataSuccess, isFilterDataSuccess) || other.isFilterDataSuccess == isFilterDataSuccess) &&
+            (identical(other.isFilterDataFailed, isFilterDataFailed) || other.isFilterDataFailed == isFilterDataFailed));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isInitialized,
-      isGetInitialRacesLoading,
-      isGetInitialRacesFailed,
-      isGetInitialRacesSucess,
-      const DeepCollectionEquality().hash(_races),
-      currentPage,
-      isLoadingNextPage,
-      const DeepCollectionEquality().hash(_nextRaces),
-      errorMessage,
-      isSearchLoading,
-      isSearchFailed,
-      isSearchSucess,
-      const DeepCollectionEquality().hash(_searchRaces),
-      isFilterLoading,
-      isFilterFailed,
-      isFilterSucess,
-      const DeepCollectionEquality().hash(_filterRaces));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        isInitialized,
+        isGetInitialRacesLoading,
+        isGetInitialRacesFailed,
+        isGetInitialRacesSucess,
+        const DeepCollectionEquality().hash(_races),
+        currentPage,
+        isLoadingNextPage,
+        const DeepCollectionEquality().hash(_nextRaces),
+        errorMessage,
+        isSearchLoading,
+        isSearchFailed,
+        isSearchSucess,
+        const DeepCollectionEquality().hash(_searchRaces),
+        isFilterLoading,
+        isFilterFailed,
+        isFilterSucess,
+        const DeepCollectionEquality().hash(_filterRaces),
+        selectedType,
+        selectedDate,
+        selectedDistance,
+        selectedLocation,
+        isFilterDataLoading,
+        const DeepCollectionEquality().hash(_racetypes),
+        const DeepCollectionEquality().hash(_raceDistances),
+        const DeepCollectionEquality().hash(_raceDates),
+        const DeepCollectionEquality().hash(_raceLocations),
+        isFilterDataSuccess,
+        isFilterDataFailed
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -512,7 +761,18 @@ abstract class _HomeViewModelState implements HomeViewModelState {
       final bool isFilterLoading,
       final bool isFilterFailed,
       final bool isFilterSucess,
-      final List<RaceModel> filterRaces}) = _$HomeViewModelStateImpl;
+      final List<RaceModel> filterRaces,
+      final String? selectedType,
+      final String? selectedDate,
+      final String? selectedDistance,
+      final String? selectedLocation,
+      final bool isFilterDataLoading,
+      final Set<String> racetypes,
+      final Set<String> raceDistances,
+      final Set<String> raceDates,
+      final Set<String> raceLocations,
+      final bool isFilterDataSuccess,
+      final bool isFilterDataFailed}) = _$HomeViewModelStateImpl;
 
   @override
   bool get isInitialized;
@@ -558,6 +818,32 @@ abstract class _HomeViewModelState implements HomeViewModelState {
   bool get isFilterSucess;
   @override
   List<RaceModel> get filterRaces;
+  @override
+
+  /// selected filter values
+  String? get selectedType;
+  @override
+  String? get selectedDate;
+  @override
+  String? get selectedDistance;
+  @override
+  String? get selectedLocation;
+  @override
+
+  /// filter data
+  bool get isFilterDataLoading;
+  @override
+  Set<String> get racetypes;
+  @override
+  Set<String> get raceDistances;
+  @override
+  Set<String> get raceDates;
+  @override
+  Set<String> get raceLocations;
+  @override
+  bool get isFilterDataSuccess;
+  @override
+  bool get isFilterDataFailed;
   @override
   @JsonKey(ignore: true)
   _$$HomeViewModelStateImplCopyWith<_$HomeViewModelStateImpl> get copyWith =>

@@ -11,6 +11,12 @@ abstract class RaceSourceInterface {
     String? date,
     String? distance,
   });
-  Future<ResultHandler<({List<RaceModel> countries, List<RaceModel> races}), Failure>> searchRaceByNameOrCountry(
-      String searchQuery);
+  Future<
+      ResultHandler<({List<RaceModel> countries, List<RaceModel> races}),
+          Failure>> searchRaceByNameOrCountry(String searchQuery);
+
+  Future<ResultHandler<Set<String>, Failure>> getRaceTypes();
+  Future<ResultHandler<Set<String>, Failure>> getRaceDistances();
+  Future<ResultHandler<Set<String>, Failure>> getRaceDates();
+  Future<ResultHandler<Set<String>, Failure>> getRaceLocations();
 }

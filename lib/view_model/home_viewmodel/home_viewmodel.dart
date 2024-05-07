@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:optomatica_task/model/race_model.dart/race_model.dart';
@@ -65,7 +63,6 @@ class HomeViewmodel extends Cubit<HomeViewModelState> {
 
   void searchRaceByNameOrCountry(String searchQuery) async {
     emit(reset().copyWith(isSearchLoading: true));
-    log('search loading ${state.isSearchLoading}');
     final result = await raceRepo.searchRaceByNameOrCountry(searchQuery);
     result.when(
       success: (races) {
@@ -97,10 +94,10 @@ class HomeViewmodel extends Cubit<HomeViewModelState> {
   }) async {
     emit(reset().copyWith(isFilterLoading: true));
     final result = await raceRepo.filterRaceBy(
-      type: type,
-      location: location,
-      date: date,
-      distance: distance,
+      type: type ?? state.selectedType,
+      location: location ?? state.selectedLocation,
+      date: date ?? state.selectedDate,
+      distance: distance ?? state.selectedDistance,
     );
     result.when(
       success: (races) {
@@ -109,6 +106,11 @@ class HomeViewmodel extends Cubit<HomeViewModelState> {
             isFilterLoading: false,
             isFilterSucess: true,
             filterRaces: races,
+            races: races,
+            selectedType: type,
+            selectedLocation: location,
+            selectedDate: date,
+            selectedDistance: distance,
           ),
         );
       },
@@ -118,6 +120,103 @@ class HomeViewmodel extends Cubit<HomeViewModelState> {
             isFilterLoading: false,
             isFilterFailed: true,
             errorMessage: error.message,
+          ),
+        );
+      },
+    );
+  }
+
+  void resetFilter() async {
+    getInitialRaces();
+    emit(state.copyWith(
+      selectedDate: null,
+      selectedDistance: null,
+      selectedLocation: null,
+      selectedType: null,
+    ));
+  }
+
+  void getFilterData() async {
+    emit(reset().copyWith(isFilterDataLoading: true));
+    var raceDates = await raceRepo.getRaceDates();
+
+    raceDates.when(
+      success: (dates) {
+        emit(
+          state.copyWith(
+            raceDates: dates,
+          ),
+        );
+      },
+      failure: (failure) {
+        emit(
+          state.copyWith(
+            isFilterDataLoading: false,
+            isFilterDataFailed: true,
+            errorMessage: failure.message,
+          ),
+        );
+      },
+    );
+
+    var raceDistances = await raceRepo.getRaceDistances();
+    raceDistances.when(
+      success: (distances) {
+        emit(
+          state.copyWith(
+            raceDistances: distances,
+          ),
+        );
+      },
+      failure: (failure) {
+        emit(
+          state.copyWith(
+            isFilterDataLoading: false,
+            isFilterDataFailed: true,
+            errorMessage: failure.message,
+          ),
+        );
+      },
+    );
+
+    var raceLocations = await raceRepo.getRaceLocations();
+
+    raceLocations.when(
+      success: (locations) {
+        emit(
+          state.copyWith(
+            raceLocations: locations,
+          ),
+        );
+      },
+      failure: (failure) {
+        emit(
+          state.copyWith(
+            isFilterDataLoading: false,
+            isFilterDataFailed: true,
+            errorMessage: failure.message,
+          ),
+        );
+      },
+    );
+
+    var raceTypes = await raceRepo.getRaceTypes();
+    raceTypes.when(
+      success: (types) {
+        emit(
+          state.copyWith(
+            isFilterDataLoading: false,
+            isFilterDataSuccess: true,
+            racetypes: types,
+          ),
+        );
+      },
+      failure: (failure) {
+        emit(
+          state.copyWith(
+            isFilterDataLoading: false,
+            isFilterDataFailed: true,
+            errorMessage: failure.message,
           ),
         );
       },
@@ -140,6 +239,8 @@ class HomeViewmodel extends Cubit<HomeViewModelState> {
       isFilterLoading: false,
       isFilterSucess: false,
       filterRaces: [],
+      isFilterDataFailed: false,
+      isFilterDataLoading: false,
     );
   }
 }

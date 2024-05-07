@@ -17,7 +17,7 @@ class RaceRepoImpl implements RaceRepoInterface {
     String? distance,
   }) async {
     return await raceDataSource.filterRaceBy(
-      type: date,
+      type: type,
       location: location,
       date: date,
       distance: distance,
@@ -25,8 +25,29 @@ class RaceRepoImpl implements RaceRepoInterface {
   }
 
   @override
-  Future<ResultHandler<({List<RaceModel> countries, List<RaceModel> races}), Failure>> searchRaceByNameOrCountry(
-      String searchQuery) async {
+  Future<
+      ResultHandler<({List<RaceModel> countries, List<RaceModel> races}),
+          Failure>> searchRaceByNameOrCountry(String searchQuery) async {
     return await raceDataSource.searchRaceByNameOrCountry(searchQuery);
+  }
+
+  @override
+  Future<ResultHandler<Set<String>, Failure>> getRaceDates() async {
+    return await raceDataSource.getRaceDates();
+  }
+
+  @override
+  Future<ResultHandler<Set<String>, Failure>> getRaceDistances() async {
+    return await raceDataSource.getRaceDistances();
+  }
+
+  @override
+  Future<ResultHandler<Set<String>, Failure>> getRaceLocations() async {
+    return await raceDataSource.getRaceLocations();
+  }
+
+  @override
+  Future<ResultHandler<Set<String>, Failure>> getRaceTypes() async {
+    return await raceDataSource.getRaceTypes();
   }
 }

@@ -18,7 +18,9 @@ class RootApp extends StatelessWidget {
         return BlocProvider(
           create: (context) => HomeViewmodel(
             raceRepo: kRaceRepo,
-          )..getInitialRaces(),
+          )
+            ..getInitialRaces()
+            ..getFilterData(),
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             initialRoute: AppRoutes.home,
